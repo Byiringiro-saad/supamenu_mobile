@@ -1,5 +1,8 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
+//icons
+import { AntDesign } from "@expo/vector-icons";
+
 const Results = ({ navigation }) => {
   const back = () => {
     navigation.navigate("Index");
@@ -14,7 +17,7 @@ const Results = ({ navigation }) => {
       <View style={styles.top}>
         <Pressable onPress={back}>
           <View style={styles.back}>
-            <Text>Back</Text>
+            <AntDesign name="left" size={24} color="black" />
           </View>
         </Pressable>
         <Text>12 Results</Text>
@@ -53,7 +56,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   back: {
-    width: 80,
+    width: 45,
     height: 45,
     borderRadius: 10,
     marginRight: 10,

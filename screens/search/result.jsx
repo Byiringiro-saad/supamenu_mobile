@@ -8,8 +8,10 @@ const Result = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.image}></View>
-      <Text style={styles.title}>Choose Kigali</Text>
-      <Text>Press enter to checkout menu from the restautrant</Text>
+      <View style={styles.content}>
+        <Text style={styles.title}>Choose Kigali</Text>
+        <Text>Press enter to checkout menu from the restautrant</Text>
+      </View>
       <View style={styles.down}>
         <Pressable style={styles.button} onPress={enter}>
           <Text style={styles.button_text}>Enter</Text>
@@ -38,12 +40,18 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontWeight: "bold",
   },
+  content: {
+    width: "100%",
+    height: "auto",
+    marginTop: 10,
+    paddingHorizontal: 10,
+  },
   down: {
     width: "100%",
     alignItems: "center",
   },
   button: {
-    width: "100%",
+    width: "98%",
     height: 50,
     alignItems: "center",
     justifyContent: "center",
