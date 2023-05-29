@@ -5,6 +5,10 @@ const Results = ({ navigation }) => {
     navigation.navigate("Index");
   };
 
+  const goToRestaurant = () => {
+    navigation.navigate("Result");
+  };
+
   return (
     <View style={styles.results}>
       <View style={styles.top}>
@@ -16,27 +20,17 @@ const Results = ({ navigation }) => {
         <Text>12 Results</Text>
       </View>
       <View style={styles.resultsContainer}>
-        <View style={styles.box}>
-          <View style={styles.image}></View>
-          <View style={styles.info}>
-            <Text style={styles.name}>Restaurant Name</Text>
-            <Text style={styles.address}>Restaurant Address</Text>
-          </View>
-        </View>
-        <View style={styles.box}>
-          <View style={styles.image}></View>
-          <View style={styles.info}>
-            <Text style={styles.name}>Restaurant Name</Text>
-            <Text style={styles.address}>Restaurant Address</Text>
-          </View>
-        </View>
-        <View style={styles.box}>
-          <View style={styles.image}></View>
-          <View style={styles.info}>
-            <Text style={styles.name}>Restaurant Name</Text>
-            <Text style={styles.address}>Restaurant Address</Text>
-          </View>
-        </View>
+        {[...Array(5)].map((item, index) => (
+          <Pressable key={index} onPress={goToRestaurant}>
+            <View style={styles.box}>
+              <View style={styles.image}></View>
+              <View style={styles.info}>
+                <Text style={styles.name}>Restaurant Name</Text>
+                <Text style={styles.address}>Restaurant Address</Text>
+              </View>
+            </View>
+          </Pressable>
+        ))}
       </View>
     </View>
   );
@@ -48,6 +42,7 @@ const styles = StyleSheet.create({
     paddingTop: 60,
     width: "100%",
     height: "100%",
+    overflow: "scroll",
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
   },
@@ -68,7 +63,7 @@ const styles = StyleSheet.create({
   },
   resultsContainer: {
     width: "100%",
-    height: "100%",
+    height: "90%",
     marginTop: 20,
   },
   box: {
