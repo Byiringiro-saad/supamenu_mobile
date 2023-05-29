@@ -1,11 +1,15 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 //icons
 import { Feather } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-const Restaurant = () => {
+const Restaurant = ({ navigation }) => {
+  const goToProducts = () => {
+    navigation.navigate("Products");
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Choose Kigali</Text>
@@ -23,26 +27,12 @@ const Restaurant = () => {
       <View style={styles.menu}>
         <Text style={styles.sub_title}>Menu</Text>
         <View style={styles.content}>
-          <View style={styles.row}>
-            <Text>Appetizer</Text>
-            <AntDesign name="right" size={15} color="black" />
-          </View>
-          <View style={styles.row}>
-            <Text>Starter</Text>
-            <AntDesign name="right" size={15} color="black" />
-          </View>
-          <View style={styles.row}>
-            <Text>Main</Text>
-            <AntDesign name="right" size={15} color="black" />
-          </View>
-          <View style={styles.row}>
-            <Text>Dessert</Text>
-            <AntDesign name="right" size={15} color="black" />
-          </View>
-          <View style={styles.row}>
-            <Text>Drink</Text>
-            <AntDesign name="right" size={15} color="black" />
-          </View>
+          {[...Array(4)].map((_, i) => (
+            <Pressable style={styles.row} key={i} onPress={goToProducts}>
+              <Text>Starter</Text>
+              <AntDesign name="right" size={15} color="black" />
+            </Pressable>
+          ))}
         </View>
       </View>
     </View>

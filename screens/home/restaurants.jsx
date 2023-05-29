@@ -11,7 +11,7 @@ const Restaurants = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <Text>Restaurants</Text>
+        <Text>My Restaurants</Text>
         <Entypo name="plus" size={24} color="#000000" />
       </View>
       <View style={styles.resultsContainer}>
